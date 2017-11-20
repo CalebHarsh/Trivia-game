@@ -12,77 +12,80 @@
         crossorigin="anonymous">
     <!-- Animated CRN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <!-- Font Styles -->
-    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Bungee|Ramabhadra" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
     <!-- Linked CSS Pages -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <!-- Linked jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
     <!-- Linked Javascript -->
     <script type="text/javascript" src="assets/javascript/game.js"></script>
 </head>
 
 <body class="h-100">
+
+    <!-- Main content -->
     <div class="container d-flex align-items-center h-100 justify-content-center flex-column">
-        <div class="row">
-            <div class="col-12">
-                <div class="card my-3 main-pg animated">
-                    <div class="card-body">
-                            <h2>Question</h2> 
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <p id="question">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem fugit, nesciunt
-                                            nemo architecto doloremque molestias error. Iste eius culpa sit ex dolorum. Eligendi
-                                            reprehenderit velit veniam est deleniti expedita non!</p>
+        <div class='row'>
+            <div class='col-12'>
+                <div class='card my-3 main-pg animated'>
+                    <div class='card-body'>
+                        <h2>Question</h2>
+                        <div class='row'>
+                            <div class='col-12'>
+                                <div class='card'>
+                                    <div class='card-body'>
+                                        <p id='question'></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <hr>
-                        <div class="row">
-                            <div class="col-md-6 mt-3">
-                                <div class="card answers">
-                                    <div class="card-body">
-                                        <p id="answers0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem fugit, nesciunt
-                                            nemo architecto doloremque molestias error.</p>
+                        <div class='row'>
+                            <div class='col-md-6 mt-3'>
+                                <div class='card answers'>
+                                    <div class='card-body'>
+                                        <p id='answers0'></p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 mt-3">
-                                <div class="card answers">
-                                    <div class="card-body">
-                                        <p id="answers1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem fugit, nesciunt
-                                            nemo architecto doloremque molestias error.</p>
+                            <div class='col-md-6 mt-3'>
+                                <div class='card answers'>
+                                    <div class='card-body'>
+                                        <p id='answers1'></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6 mt-3">
-                                <div class="card answers">
-                                    <div class="card-body">
-                                        <p id="answers2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem fugit, nesciunt
-                                            nemo architecto doloremque molestias error.</p>
+                        <div class='row'>
+                            <div class='col-md-6 mt-3'>
+                                <div class='card answers'>
+                                    <div class='card-body'>
+                                        <p id='answers2'></p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 mt-3">
-                                <div class="card answers">
-                                    <div class="card-body">
-                                        <p id="answers3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem fugit, nesciunt
-                                            nemo architecto doloremque molestias error.</p>
+                            <div class='col-md-6 mt-3'>
+                                <div class='card answers'>
+                                    <div class='card-body'>
+                                        <p id='answers3'></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <h5 id="time"> Time Left:
-                                <span id="timer">00</span>
+                    <div class='row'>
+                        <div class='col-12 text-center'>
+                              <!-- Button trigger modal -->
+                            <button type='button' class='btn btn-primary float-left mb-3 ml-3' data-toggle='modal' data-target='#exampleModal'>
+                                Menu
+                            </button>
+                            <h5 id='time'> Time Left:
+                                <span id='timer'>00</span>
                             </h5>
                         </div>
                     </div>
@@ -90,9 +93,30 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-    
-    </script>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Rules</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Rules go here -->
+                    Rule 1:
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Back to Game</button>
+                    <a href="index.html">
+                        <button type="button" class="btn btn-primary">Quit</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
