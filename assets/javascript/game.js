@@ -93,12 +93,18 @@ $(document).ready(function () {
     });
     $(".container").on("click", "#next", function () {
         $(".main-pg").addClass("bounceOutRight");
+        setTimeout ( function () {
+                $(".main-pg").hide();
+                 $("#loading-img").show();
+            }, 600);
         numOfQuest++;
         setTimeout(function () {
             $(".main-pg").removeClass("bounceOutRight");
             $("#correct").removeAttr("id");
+            $("#loading-img").hide();
+            $(".main-pg").show();
             loadQuestPage();
-        }, 3000);
+        }, 3800);
     });
     // Timer SetUp
     var time = 20;
@@ -170,4 +176,4 @@ var triviaPage = "<div class='row'>" +
     "<div class='col-12 text-center'>" +
     "<button type='button' class='btn btn-primary float-right mb-3 mr-3' id='next'>Next</button>" +
     "<h5 id='time'> Time Left: <span id='timer'>00</span></h5>" +
-    "</div></div></div></div></div>"
+    "</div></div></div><img style='display: none;' id='loading-img' src='assets/images/loading.gif'></div></div>"
