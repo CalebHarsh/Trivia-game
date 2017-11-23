@@ -58,6 +58,7 @@ $(document).ready(function () {
     var randQuest = [0, 1, 2, 3, 4];
     var catPick;
     var numOfQuest = 0;
+    var correct = 0;
     var loadQuestPage = function () {
 
         var shuffle = trivia[catPick][randQuest[numOfQuest]].selection;
@@ -73,6 +74,12 @@ $(document).ready(function () {
         start();
         $(".answers").css("background-color", "white");
     }
+    //Start Game 
+    $(".container").on("click", "#start", function () {
+        $(".container").empty();
+        $(".container").html(categoryPage);
+    });
+    //Pick your category
     $(".container").on("click", ".category", function () {
         $(".container").empty();
         $(".container").html(triviaPage);
@@ -81,29 +88,43 @@ $(document).ready(function () {
         loadQuestPage();
 
     });
+    //New Game button
+    $(".container").on("click", "#newGame", function () {
+        $(".container").empty();
+        $(".container").html(categoryPage);
+        correct = 0;
+        numOfQuest = 0;
+    });
+    //Answer selection
     $(".container").on("click", ".answers", function () {
         var select = $(this);
         if (select.text().trim() === trivia[catPick][randQuest[numOfQuest]].answer) {
             select.css("background-color", "#06df06");
+            correct++;
         } else {
             select.css("background-color", "red");
             $(".answers:has(#correct)").css("background-color", "#06df06");
         }
         stop();
     });
+    //Transition to next page
     $(".container").on("click", "#next", function () {
         $(".main-pg").addClass("bounceOutRight");
-        setTimeout ( function () {
-                $(".main-pg").hide();
-                 $("#loading-img").show();
-            }, 600);
+        setTimeout(function () {
+            $(".main-pg").hide();
+            $("#loading-img").show();
+        }, 600);
         numOfQuest++;
         setTimeout(function () {
             $(".main-pg").removeClass("bounceOutRight");
             $("#correct").removeAttr("id");
             $("#loading-img").hide();
             $(".main-pg").show();
-            loadQuestPage();
+            if (numOfQuest > 4) {
+                loadResultsPage();
+            } else {
+                loadQuestPage();
+            }
         }, 3800);
     });
     // Timer SetUp
@@ -118,7 +139,7 @@ $(document).ready(function () {
         if (time < 6) {
             $("#time").css('color', 'red');
         }
-        if(time <= 0) {
+        if (time <= 0) {
             stop();
         }
         $("#timer").text(show);
@@ -136,20 +157,53 @@ $(document).ready(function () {
         $("#next").show();
         $(".answers:has(#correct)").css("background-color", "#06df06");
     }
-
+    //Quit button
+    $(".container").on("click", "#quit", function () {
+        console.log("You should of Quit")
+        location.reload();
+    });
+    var loadResultsPage = function () {
+        $(".container").empty();
+        $(".container").html(resultsPage);
+        $("#results").text("You got " + correct + " out of 5. You can play again or quit.");
+    }
 
 });
+var categoryPage = "<h1 class='text-center'>Pick Your Categories:</h1>" +
+    "<div class='row text-center'>" +
+    "<div class='col-xl-3 col-sm-6 mt-3'>" +
+    "<div class='card category' value='0'>" +
+    "<h4 class='card-header'>Movies & TV</h4>" +
+    "<div class='card-body'>" +
+    "<img src='assets/images/movie.jpg' alt='' class='img-fluid'>" +
+    "</div></div></div>" +
+    "<div class='col-xl-3 col-sm-6 mt-3'>" +
+    "<div class='card category' value='1'>" +
+    "<h4 class='card-header'>History Facts</h4>" +
+    "<div class='card-body'>" +
+    "<img src='assets/images/history.jpg' alt='' class='img-fluid'>" +
+    "</div></div></div>" +
+    "<div class='col-xl-3 col-sm-6 mt-3'>" +
+    "<div class='card category' value='2'>" +
+    "<h4 class='card-header'>Mythology</h4>" +
+    "<div class='card-body'>" +
+    "<img src='assets/images/myth.jpg' alt='' class='img-fluid'>" +
+    "</div></div></div>" +
+    "<div class='col-xl-3 col-sm-6 my-3'>" +
+    "<div class='card category' value='3'>" +
+    "<h4 class='card-header'>Miscellaneous</h4>" +
+    "<div class='card-body'>" +
+    "<img src='assets/images/misc.jpeg' alt='' class='img-fluid'>" +
+    "</div></div></div></div>"
+
+
 var triviaPage = "<div class='row'>" +
     "<div class='col-12'>" +
     "<div class='card my-3 main-pg animated bounceInLeft'>" +
-    "<div class='card-body'>" +
+    "<div class ='card-header'>" +
     "<h2>Question</h2>" +
-    "<div class='row'>" +
-    "<div class='col-12'>" +
-    "<div class='card'>" +
+    "<p id='question'></p></div>" +
     "<div class='card-body'>" +
-    "<p id='question'></p>" +
-    "</div></div></div></div><hr>" +
     "<div class='row'>" +
     "<div class='col-md-6 mt-3'>" +
     "<div class='card answers'>" +
@@ -172,8 +226,17 @@ var triviaPage = "<div class='row'>" +
     "<div class='card-body'>" +
     "<p class='ans3'></p>" +
     "</div></div></div></div></div>" +
-    "<div class='row'>" +
-    "<div class='col-12 text-center'>" +
-    "<button type='button' class='btn btn-primary float-right mb-3 mr-3' id='next'>Next</button>" +
+    "<div class='card-footer'>" +
+    "<button type='button' class='btn btn-primary float-right' id='next'>Next</button>" +
     "<h5 id='time'> Time Left: <span id='timer'>00</span></h5>" +
     "</div></div></div><img style='display: none;' id='loading-img' src='assets/images/loading.gif'></div></div>"
+
+var resultsPage = "<div class='card text-center my-3 animated'>" +
+    "<h2 class='card-header text-left'>Results:</h2>" +
+    "<div class='card-body'>" +
+    "<div class='row'><div class='col-12'>" +
+    "<p id='results'></p></div></div></div>" +
+    "<div class='card-footer'>" +
+    "<button id='newGame' type = 'button' class='btn btn-primary float-right'>New Game</button>" +
+    "<button id='quit' type='button' class='btn btn-quit float-left'>Quit</button>" +
+    "</div></div>"
