@@ -1,57 +1,115 @@
 $(document).ready(function () {
     var trivia = [
+        //movies
         [
             quest0 = {
-                question: "Who plays on this movie?",
-                selection: ["Bill Murray", "Will Smith", "Kevin James", "Brad Pitt"],
-                answer: "Will Smith"
+                question: "Who was the longest running character on TV?",
+                selection: ["Frasier Crane -Frasier", "Cliff Huxtable -Cosby Show", "Thomas Magnum -Magnum PI", "Hawkeye Pier -MASH"],
+                answer: "Frasier Crane -Frasier"
             },
             quest1 = {
-                question: "Who plays on this TV show?",
-                selection: ["Jennifer Lawrence", "Chris Evans", "Chris Pratt", "Matt Damon"],
-                answer: "Chris Evans"
+                question: "In 'Back to the Future' how fast does the Delorean have to travel through time?",
+                selection: ["88 mph", "100 mph", "77 mph", "66 mph"],
+                answer: "88 mph"
             },
             quest2 = {
-                question: "Name this movie?",
-                selection: ["Star Wars", "Lord of the Rings", "Back to the Future", "Guardian of the Galaxy"],
-                answer: "Lord of the Rings"
+                question: "How many Friday the 13th movies are there in the franchise?",
+                selection: ["12", "13", "6", "10"],
+                answer: "12"
             },
             quest3 = {
-                question: "Who is the main character in this movie?",
-                selection: ["Master Chief", "Capt. America", "Thor", "Wonder Woman"],
-                answer: "Thor"
+                question: "What holiday classic was a flop at the box office?",
+                selection: ["Miracle on 34th Street", "Christmas Story", "White Christmas", "It's a Wonderful Life"],
+                answer: "It's a Wonderful Life"
             },
             quest4 = {
-                question: "Who is the enemy?",
-                selection: ["Darth Vador", "Green Goblin", "Joker", "Zombies"],
-                answer: "Darth Vador"
+                question: 'In what movie is this from, "' + "And that's the way the cookie crumbles" + '"?',
+                selection: ["Blades of Glory", "Anchorman", "Ace Ventura Pet Detective", "Bruce Almighty"],
+                answer: "Bruce Almighty"
             }
         ],
+        //History
         [
             quest0 = {
-                question: "what war happened in the early 1800's?",
-                selection: ["War of 1812", "Revolutionary War", "Civil War", "World War II"],
-                answer: "War of 1812"
+                question: "Who is known for saying, 'Speak softly, but carry a big stick.'?",
+                selection: ["Theodore Roosevelt", "William Churchill", "George Washington", "Andrew Jackson"],
+                answer: "Theodore Roosevelt"
             },
             quest1 = {
-                question: "What started World War II for America?",
-                selection: ["Assination of a Duke", "Pearl Habor Bombing", "Nazi invading Poland", "Matt Damon"],
-                answer: "Pearl Habor Bombing"
+                question: "How long was the French & Indian War fought?",
+                selection: ["7 years", "3 years", "1 year", "5 years"],
+                answer: "7 years"
             },
             quest2 = {
-                question: "When was the Decraltion of Indpendence written?",
+                question: "When was the Decraltion of Indpendence accepted by Congress?",
                 selection: ["July 4th", "December 25th", "September 11th", "February 29th"],
                 answer: "July 4th"
             },
             quest3 = {
-                question: "What state was the last to join the US?",
+                question: "What state was the last to join the United States?",
                 selection: ["Hawaii", "Alaska", "Arizona", "Oklahoma"],
                 answer: "Hawaii"
             },
             quest4 = {
-                question: "Who is the enemy?",
-                selection: ["Nazis", "Confeteres", "French", "England"],
-                answer: "Nazis"
+                question: "'Common Sense' was writtien by whihc person?",
+                selection: ["Thomas Paine", "Benjamin Franklin", "John Adems", "Thomas Jefferson"],
+                answer: "Thomas Paine"
+            }
+        ],
+        //Mythology
+        [
+            quest0 = {
+                question: "In Greek mythology who is the god of love?",
+                selection: ["Venus", "Cupid", "Aphrodite", "Hestia"],
+                answer: "Aphrodite"
+            },
+            quest1 = {
+                question: "According to Norse myth, who is Thor's father?",
+                selection: ["Odin", "Loki", "Balder", "Frey"],
+                answer: "Odin"
+            },
+            quest2 = {
+                question: "What does the god of Ra reign over in Egypt mythology?",
+                selection: ["The Underworld", "The Desert", "The Nile", "The Sun"],
+                answer: "The Sun"
+            },
+            quest3 = {
+                question: "Of these gods which one did not change it's name from Greek to Roman?",
+                selection: ["Jupiter", "Neptune", "Apollo", "Mercury"],
+                answer: "Apollo"
+            },
+            quest4 = {
+                question: "Which one is not part of the Big Three, in Greek mythology?",
+                selection: ["Zeus", "Posidon", "Hades", "Ares"],
+                answer: "Ares"
+            }
+        ],
+        //Miscellanous
+        [
+            quest0 = {
+                question: "What is the scientific term for a group of crows?",
+                selection: ["A Murder", "A Flock", "A Pack", "A Fool"],
+                answer: "A Murder"
+            },
+            quest1 = {
+                question: "Born Marion Mitchell Morrison, this famous actor has stared in many movies?",
+                selection: ["Clint Eastwood", "Johnny Depp", "Marilyn Monroe", "John Wayne"],
+                answer: "John Wayne"
+            },
+            quest2 = {
+                question: "What state is known as the Valentine State?",
+                selection: ["Florida", "Arizona", "New York", "Hawaii"],
+                answer: "Arizona"
+            },
+            quest3 = {
+                question: "How many paintings did Vincent Van Gogh sell in his life?",
+                selection: ["10", "12", "1", "23"],
+                answer: "1"
+            },
+            quest4 = {
+                question: "How fast can a honeybee bee fly?",
+                selection: ["15 mph", "3 mph", "10 mph", "7 mph"],
+                answer: "15 mph"
             }
         ]
     ]
@@ -125,7 +183,7 @@ $(document).ready(function () {
             } else {
                 loadQuestPage();
             }
-        }, 3800);
+        },2800);
     });
     // Timer SetUp
     var time = 20;

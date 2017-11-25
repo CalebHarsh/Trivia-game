@@ -24,3 +24,7 @@ p {
 .main-pg {
     min-width: 100%; 
 }
+#loading-img {
+    border-radius: 150px;
+    width: 300px;
+}
