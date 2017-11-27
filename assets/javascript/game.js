@@ -257,25 +257,25 @@ $(document).ready(function () {
         "<div class='card category' value='Movies & TV'>" +
         "<h4 class='card-header'>Movies & TV</h4>" +
         "<div class='card-body'>" +
-        "<img src='assets/images/movie.jpg' alt='' class='img-fluid'>" +
+        "<img src='../assets/images/movie.jpg' alt='' class='img-fluid'>" +
         "</div></div></div>" +
         "<div class='col-xl-3 col-sm-6 mt-3'>" +
         "<div class='card category' value='History'>" +
         "<h4 class='card-header'>History Facts</h4>" +
         "<div class='card-body'>" +
-        "<img src='assets/images/history.jpg' alt='' class='img-fluid'>" +
+        "<img src='../assets/images/history.jpg' alt='' class='img-fluid'>" +
         "</div></div></div>" +
         "<div class='col-xl-3 col-sm-6 mt-3'>" +
         "<div class='card category' value='Mythology'>" +
         "<h4 class='card-header'>Mythology</h4>" +
         "<div class='card-body'>" +
-        "<img src='assets/images/myth.jpg' alt='' class='img-fluid'>" +
+        "<img src='../assets/images/myth.jpg' alt='' class='img-fluid'>" +
         "</div></div></div>" +
         "<div class='col-xl-3 col-sm-6 my-3'>" +
         "<div class='card category' value='Miscellaneous'>" +
         "<h4 class='card-header'>Miscellaneous</h4>" +
         "<div class='card-body'>" +
-        "<img src='assets/images/misc.jpeg' alt='' class='img-fluid'>" +
+        "<img src='../assets/images/misc.jpeg' alt='' class='img-fluid'>" +
         "</div></div></div></div>";
 
 
@@ -311,7 +311,7 @@ $(document).ready(function () {
         "<div class='card-footer'>" +
         "<button type='button' class='btn btn-primary float-right' id='next'>Next</button>" +
         "<h5 id='time'> Time Left: <span id='timer'>00</span></h5>" +
-        "</div></div></div><img style='display: none;' id='loading-img' src='assets/images/loading.gif'></div></div>";
+        "</div></div></div><img style='display: none;' id='loading-img' src='../assets/images/loading.gif'></div></div>";
 
     var resultsPage = "<div class='card text-center my-3 animated'>" +
         "<h2 class='card-header text-left'>Results:</h2>" +
