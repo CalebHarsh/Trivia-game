@@ -57,7 +57,7 @@ $(document).ready(function () {
             category: "History"
         },
         {
-            question: "'Common Sense' was writtien by which person?",
+            question: "'Common Sense' was written by which person?",
             selection: ["Thomas Paine", "Benjamin Franklin", "John Adams", "Thomas Jefferson"],
             answer: "Thomas Paine",
             category: "History"
