@@ -5,6 +5,7 @@ $(document).ready(function () {
     var catPick;
     var correct = 0;
     var numOfQuest = 0;
+    var answered = false;
     // functions
     //getting trivia question
     var getTrivia = function () {
@@ -17,8 +18,8 @@ $(document).ready(function () {
             method: 'GET'
         }).done(function (response) {
             console.log(response.results);
-           questions = response.results;
-           loadQuestPage();
+            questions = response.results;
+            loadQuestPage();
         });
     }
     // loading questions
@@ -33,7 +34,10 @@ $(document).ready(function () {
                 $(".ans" + i).attr("id", "correct");
             }
         }
+        answered = false;
+        $("#number").text("Question #" + (numOfQuest + 1));
         $("#next").hide();
+        $("#menu").show();
         start();
         $(".answers").css("background-color", "white");
     }
@@ -41,6 +45,7 @@ $(document).ready(function () {
     var loadResultsPage = function () {
         $(".container").empty();
         $(".container").html(resultsPage);
+        $("#menu").hide();
         $("#results").text("You got " + correct + " out of 10. You can play again or quit.");
     }
     // click events
@@ -54,24 +59,29 @@ $(document).ready(function () {
         $(".container").empty();
         $(".container").html(triviaPage);
         catPick = $(this).attr("value");
+        $("#menu").hide();
         ajaxFunction();
     });
     // question selections
     $(".container").on("click", ".answers", function () {
-        var select = $(this);
-        if (select.text().trim() === questions[numOfQuest].correct_answer) {
-            select.css("background-color", "#06df06");
-            correct++;
-        } else {
-            select.css("background-color", "red");
-            $(".answers:has(#correct)").css("background-color", "#06df06");
+        if (!answered) {
+            var select = $(this);
+            if (select.text().trim() === questions[numOfQuest].correct_answer) {
+                select.css("background-color", "#06df06");
+                correct++;
+            } else {
+                select.css("background-color", "red");
+                $(".answers:has(#correct)").css("background-color", "#06df06");
+            }
+            stop();
         }
-        stop();
+
     });
     // Next Button - Transistion to next-page
     $(".container").on("click", "#next", function () {
         $(".main-pg").addClass("bounceOutRight");
         numOfQuest++;
+        $("#menu").hide();
         setTimeout(function () {
             $(".main-pg").hide();
             $("#loading-img").show();
@@ -128,13 +138,14 @@ $(document).ready(function () {
         $("#timer").text("00");
         $("#next").show();
         $(".answers:has(#correct)").css("background-color", "#06df06");
+        answered = true; 
     }
     // Web Page HTML
     var categoryPage = "<h1 class='text-center'>Pick Your Categories:</h1>" +
         "<div class='row text-center'>" +
         "<div class='col-xl-3 col-sm-6 mt-3'>" +
         "<div class='card category' value='11'>" +
-        "<h4 class='card-header'>Movies & TV</h4>" +
+        "<h4 class='card-header'>Movies</h4>" +
         "<div class='card-body'>" +
         "<img src='../assets/images/movie.jpg' alt='' class='img-fluid'>" +
         "</div></div></div>" +
@@ -155,6 +166,32 @@ $(document).ready(function () {
         "<h4 class='card-header'>Miscellaneous</h4>" +
         "<div class='card-body'>" +
         "<img src='../assets/images/misc.jpeg' alt='' class='img-fluid'>" +
+        "</div></div></div></div>" + 
+
+        "<div class='row text-center'>" +
+        "<div class='col-xl-3 col-sm-6 mt-3'>" +
+        "<div class='card category' value='14'>" +
+        "<h4 class='card-header'>Television</h4>" +
+        "<div class='card-body'>" +
+        "<img src='../assets/images/movie.jpg' alt='' class='img-fluid'>" +
+        "</div></div></div>" +
+        "<div class='col-xl-3 col-sm-6 mt-3'>" +
+        "<div class='card category' value='12'>" +
+        "<h4 class='card-header'>Music</h4>" +
+        "<div class='card-body'>" +
+        "<img src='../assets/images/history.jpg' alt='' class='img-fluid'>" +
+        "</div></div></div>" +
+        "<div class='col-xl-3 col-sm-6 mt-3'>" +
+        "<div class='card category' value='10'>" +
+        "<h4 class='card-header'>Books</h4>" +
+        "<div class='card-body'>" +
+        "<img src='../assets/images/myth.jpg' alt='' class='img-fluid'>" +
+        "</div></div></div>" +
+        "<div class='col-xl-3 col-sm-6 my-3'>" +
+        "<div class='card category' value=''>" +
+        "<h4 class='card-header'>Everything</h4>" +
+        "<div class='card-body'>" +
+        "<img src='../assets/images/misc.jpeg' alt='' class='img-fluid'>" +
         "</div></div></div></div>";
 
 
@@ -162,7 +199,7 @@ $(document).ready(function () {
         "<div class='col-12'>" +
         "<div class='card my-3 main-pg animated bounceInLeft'>" +
         "<div class ='card-header'>" +
-        "<h2>Question</h2>" +
+        "<h2 id='number'></h2>" +
         "<p id='question'></p></div>" +
         "<div class='card-body'>" +
         "<div class='row'>" +

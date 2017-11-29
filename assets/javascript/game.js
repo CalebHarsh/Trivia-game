@@ -153,6 +153,7 @@ $(document).ready(function () {
                 console.log("The Answer is: " + shuffle[i]);
             }
         }
+        $("#number").text("Question #" + (numOfQuest + 1));
         $("#next").hide();
         start();
         $(".answers").css("background-color", "white");
@@ -283,7 +284,7 @@ $(document).ready(function () {
         "<div class='col-12'>" +
         "<div class='card my-3 main-pg animated bounceInLeft'>" +
         "<div class ='card-header'>" +
-        "<h2>Question</h2>" +
+        "<h2 id='number'></h2>" +
         "<p id='question'></p></div>" +
         "<div class='card-body'>" +
         "<div class='row'>" +
