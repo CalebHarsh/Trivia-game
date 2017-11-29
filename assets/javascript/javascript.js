@@ -107,7 +107,7 @@ $(document).ready(function () {
         numOfQuest = 0;
     });
     // Quit button
-    $(".container").on("click", "#quit", function () {
+    $("body").on("click", "#quit", function () {
         location.reload();
     });
     // timer setup 
@@ -141,7 +141,7 @@ $(document).ready(function () {
         answered = true; 
     }
     // Web Page HTML
-    var categoryPage = "<h1 class='text-center'>Pick Your Categories:</h1>" +
+    var categoryPage = "<h1 class='text-center category' value='31'>Pick Your Categories:</h1>" +
         "<div class='row text-center'>" +
         "<div class='col-xl-3 col-sm-6 mt-3'>" +
         "<div class='card category' value='11'>" +
@@ -150,16 +150,16 @@ $(document).ready(function () {
         "<img src='../assets/images/movie.jpg' alt='' class='img-fluid'>" +
         "</div></div></div>" +
         "<div class='col-xl-3 col-sm-6 mt-3'>" +
-        "<div class='card category' value='23'>" +
-        "<h4 class='card-header'>History Facts</h4>" +
+        "<div class='card category' value='14'>" +
+        "<h4 class='card-header'>Television</h4>" +
         "<div class='card-body'>" +
-        "<img src='../assets/images/history.jpg' alt='' class='img-fluid'>" +
+        "<img src='../assets/images/TV.jpg' alt='' class='img-fluid'>" +
         "</div></div></div>" +
         "<div class='col-xl-3 col-sm-6 mt-3'>" +
-        "<div class='card category' value='20'>" +
-        "<h4 class='card-header'>Mythology</h4>" +
+        "<div class='card category' value='10'>" +
+        "<h4 class='card-header'>Books</h4>" +
         "<div class='card-body'>" +
-        "<img src='../assets/images/myth.jpg' alt='' class='img-fluid'>" +
+        "<img src='../assets/images/book.jpg' alt='' class='img-fluid'>" +
         "</div></div></div>" +
         "<div class='col-xl-3 col-sm-6 my-3'>" +
         "<div class='card category' value='9'>" +
@@ -170,20 +170,20 @@ $(document).ready(function () {
 
         "<div class='row text-center'>" +
         "<div class='col-xl-3 col-sm-6 mt-3'>" +
-        "<div class='card category' value='14'>" +
-        "<h4 class='card-header'>Television</h4>" +
+        "<div class='card category' value='23'>" +
+        "<h4 class='card-header'>History Facts</h4>" +
         "<div class='card-body'>" +
-        "<img src='../assets/images/movie.jpg' alt='' class='img-fluid'>" +
+        "<img src='../assets/images/history.jpg' alt='' class='img-fluid'>" +
         "</div></div></div>" +
         "<div class='col-xl-3 col-sm-6 mt-3'>" +
         "<div class='card category' value='12'>" +
         "<h4 class='card-header'>Music</h4>" +
         "<div class='card-body'>" +
-        "<img src='../assets/images/history.jpg' alt='' class='img-fluid'>" +
+        "<img src='../assets/images/music.jpg' alt='' class='img-fluid'>" +
         "</div></div></div>" +
         "<div class='col-xl-3 col-sm-6 mt-3'>" +
-        "<div class='card category' value='10'>" +
-        "<h4 class='card-header'>Books</h4>" +
+        "<div class='card category' value='20'>" +
+        "<h4 class='card-header'>Mythology</h4>" +
         "<div class='card-body'>" +
         "<img src='../assets/images/myth.jpg' alt='' class='img-fluid'>" +
         "</div></div></div>" +
@@ -191,7 +191,7 @@ $(document).ready(function () {
         "<div class='card category' value=''>" +
         "<h4 class='card-header'>Everything</h4>" +
         "<div class='card-body'>" +
-        "<img src='../assets/images/misc.jpeg' alt='' class='img-fluid'>" +
+        "<img src='../assets/images/everything.jpg' alt='' class='img-fluid'>" +
         "</div></div></div></div>";
 
 
